@@ -1,0 +1,22 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: ./src/github.com/${{ github.repository }}
+
+      - name: Run Tests
+        working-directory: ./src/github.com/${{ github.repository }}
+        run: |
+          ls -al
+          echo $(pwd)
+          ./tests/run-tests.sh
