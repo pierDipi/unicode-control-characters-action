@@ -1,5 +1,7 @@
-#!/bin/sh -l
+#!/usr/bin/env bash
 
-echo "Hello $1"
-time=$(date)
-echo ::set-output name=time::$time
+set -euo pipefail
+
+echo "Args: $@"
+
+/src/find_unicode_control2.py $@
