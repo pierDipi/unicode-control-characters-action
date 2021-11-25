@@ -4,20 +4,29 @@ This action prints "Hello World" to the log or "Hello" + the name of a person to
 
 ## Inputs
 
-### `who-to-greet`
+### `args`
 
-**Required** The name of the person to greet. Default `"World"`.
-
-## Outputs
-
-### `time`
-
-The time we greeted you.
+**Required** The script arguments documented in [src/README.txt](src/README.txt).
 
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-docker-action@master
-with:
-  who-to-greet: 'Mona the Octocat'
+name: Tests
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run Tests
+        uses: pierdipi/unicode-control-characters-action@main
+        with:
+          args: -d .
 ```
