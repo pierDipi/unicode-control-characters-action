@@ -1,6 +1,8 @@
-# Hello world docker action
+# Unicode Control Characters Action
 
-This action prints "Hello World" to the log or "Hello" + the name of a person to greet. To learn how this action was built, see "[Creating a Docker container action](https://help.github.com/en/articles/creating-a-docker-container-action)" in the GitHub Help documentation.
+A GitHub Action to find Unicode control characters using the
+Red Hat diagnostic tool https://access.redhat.com/security/vulnerabilities/RHSB-2021-007
+to detect RHSB-2021-007 Trojan source attacks (CVE-2021-42574,CVE-2021-42694)
 
 ## Inputs
 
