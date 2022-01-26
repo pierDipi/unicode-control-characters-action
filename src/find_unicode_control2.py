@@ -14,7 +14,7 @@ from __future__ import print_function
 
 import dataclasses
 import sys, os, argparse, re, unicodedata, subprocess
-import importlib
+from importlib import util
 from stat import *
 from typing import Any, List
 
@@ -226,8 +226,8 @@ if __name__ == '__main__':
         msg = 'bidirectional control characters'
 
     if args.config:
-        spec = importlib.util.spec_from_file_location("settings", args.config)
-        settings = importlib.util.module_from_spec(spec)
+        spec = util.spec_from_file_location("settings", args.config)
+        settings = util.module_from_spec(spec)
         spec.loader.exec_module(settings)
         if hasattr(settings, 'scan_exclude'):
             scan_exclude = scan_exclude + settings.scan_exclude
