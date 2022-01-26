@@ -241,6 +241,8 @@ if __name__ == '__main__':
 
     if len(unicode_characters) > 0:
         for c in unicode_characters:
-            # ::error file={name},line={line},endLine={endLine},title={title}::{message}
+            # Log the position of the invalid character.
+            print('file=%s,line=%s,title=%s %s %s' % (c.filename, c.line, c.msg, c.subset, c.text))
+            # Create a GH action annotation
             print('::error file=%s,line=%s,title=%s::%s %s' % (c.filename, c.line, c.msg, c.subset, c.text))
         sys.exit(1)
