@@ -1,10 +1,5 @@
 # Container image that runs your code
-FROM quay.io/centos/centos:stream9
-
-# Copies your code file from your action repository to the filesystem path `/` of the container
-RUN yum update -y \
-    && yum install python3 -y \
-    && yum install file -y
+FROM registry.access.redhat.com/ubi9/python-39:1
 
 COPY LICENSE /LICENSE
 COPY src /src
