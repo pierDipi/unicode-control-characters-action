@@ -2,6 +2,6 @@
 
 set -euo pipefail
 
-echo "Args: $@"
+echo "Args: $*"
 
-/src/find_unicode_control2.py $@
+/src/find_unicode_control2.py "$@"
